@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudin Rupakheti - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #fafafa;
+            color: #212121;
+            line-height: 1.6;
+        }
+
+        .material-icons {
+            vertical-align: middle;
+        }
+
+        /* App Bar */
+        .app-bar {
+            background: #1976d2;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .toolbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: opacity 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+            color: white;
+            padding: 120px 24px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 300;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero h2 {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 32px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            background: white;
+            color: #1976d2;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transform: translateY(-2px);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 64px 24px;
+        }
+
+        /* Cards Section */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 32px 24px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            transform: translateY(-4px);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: #1976d2;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 24px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: #212121;
+        }
+
+        .card p {
+            color: #757575;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: #212121;
+            color: white;
+            padding: 48px 24px;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 24px;
+            opacity: 0.7;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            width: 48px;
+            height: 48px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 20px;
+        }
+
+        .social-link:hover {
+            background: #1976d2;
+            transform: translateY(-4px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        /* Ripple Effect */
+        .ripple {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ripple::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .ripple:active::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero h2 {
+                font-size: 18px;
+            }
+
+            .nav-links {
+                gap: 16px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .toolbar {
+                padding: 12px 16px;
+            }
+
+            .container {
+                padding: 48px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- App Bar -->
+    <header class="app-bar">
+        <div class="toolbar">
+            <div class="logo">Sudin Rupakheti</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Coming Soon</h1>
+            <h2>Building something awesome. Stay tuned for updates!</h2>
+            <a href="#contact" class="btn ripple">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="container" id="about">
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">
+                    <span class="material-icons">code</span>
+                </div>
+                <h3>Developer</h3>
+                <p>Passionate about building great software and learning new technologies.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <span class="material-icons">school</span>
+                </div>
+                <h3>Learner</h3>
+                <p>Continuously exploring and expanding my knowledge in tech.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <span class="material-icons">lightbulb</span>
+                </div>
+                <h3>Problem Solver</h3>
+                <p>Turning complex challenges into elegant solutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <p>&copy; 2024 Sudin Rupakheti. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://github.com/sudinrupakheti/" target="_blank" class="social-link ripple" title="GitHub">
+                <span class="material-icons">code</span>
+            </a>
+            <a href="https://www.linkedin.com/in/sudin-rupakheti-36a760382/" target="_blank" class="social-link ripple" title="LinkedIn">
+                <span class="material-icons">business_center</span>
+            </a>
+            <a href="https://medium.com/@sudinrupakheti" target="_blank" class="social-link ripple" title="Medium">
+                <span class="material-icons">article</span>
+            </a>
+            <a href="mailto:sudinrupakheti977@gmail.com" class="social-link ripple" title="Email">
+                <span class="material-icons">email</span>
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
